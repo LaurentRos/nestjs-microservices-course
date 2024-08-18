@@ -6,6 +6,7 @@ import {
   NATS_MESSAGE_BROKER,
   NOTIFICATIONS_SERVICE,
 } from 'apps/alarms-service/src/constants';
+import { TracingModule } from '@app/tracing';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import {
         },
       },
     ]),
+    TracingModule,
   ],
   controllers: [AlarmsServiceController],
   providers: [AlarmsServiceService],
