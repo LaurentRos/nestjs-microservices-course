@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { WORKFLOWS_SERVICE } from 'apps/virtual-facility/src/constants';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { OutboxProcessor } from 'apps/virtual-facility/src/outbox/outbox.processor';
+import { OutboxEntitySubscriber } from 'apps/virtual-facility/src/outbox/outbox.entity-subscriber';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import { OutboxProcessor } from 'apps/virtual-facility/src/outbox/outbox.process
       },
     ]),
   ],
-  providers: [OutboxService, OutboxProcessor],
+  providers: [OutboxService, OutboxProcessor, OutboxEntitySubscriber],
 })
 export class OutboxModule {}
